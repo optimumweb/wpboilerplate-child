@@ -3,10 +3,11 @@
 // ENQUEUE
 function enqueue() {
 	if ( !is_admin() ) {
+	    // libs
+	    wpbp_enqueue_lib(array('modernizr', 'jquery', 'wpbp'));
 		// scripts
-		wpbp_enqueue_scripts( array( 'modernizr', 'jquery', 'wpbp' ) );
+		wp_enqueue_script('theme', THEME_URI . '/js/scripts.js', array('jquery'));
 		// styles
-		wpbp_enqueue_styles( array( '960gs', 'default' ) );
 		wp_enqueue_style('theme', THEME_URI . '/css/master.css', array('default'));
 	}
 }
