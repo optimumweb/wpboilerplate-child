@@ -1,7 +1,7 @@
 wpboilerplate-child
 ===================
 
-Elementary child-theme for [wpboilerplate](https://github.com/optimumweb/wpboilerplate)
+Elementary child-theme for [wpboilerplate](https://github.com/optimumweb/wpboilerplate).
 
 ## Author
 
