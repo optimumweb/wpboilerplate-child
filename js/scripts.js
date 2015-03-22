@@ -1,13 +1,5 @@
-!function ($) {
+$(document).ready(function() {
 
-    $(function () {
+    // put your jquery code here
 
-        $(document).ready(function() {
-
-            // put your jquery code here
-
-        });
-
-    });
-
-}(window.jQuery);
+});
