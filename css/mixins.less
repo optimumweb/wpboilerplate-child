@@ -3,32 +3,6 @@
    Mixins
    ========================================================================== */
 
-.border-radius(@radius: 0) {
-    -webkit-background-clip: padding-box;
-	-webkit-border-radius: @radius;
-	-moz-background-clip: padding-box;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
-	background-clip: padding-box;
-	behavior: url(../misc/border-radius.htc);
-}
-
-.multi-border-radius(@top-left: 0, @top-right: 0, @bottom-right: 0, @bottom-left: 0) {
-	-webkit-border-top-left-radius: @top-left;
-	-webkit-border-top-right-radius: @top-right;
-	-webkit-border-bottom-right-radius: @bottom-right;
-	-webkit-border-bottom-left-radius: @bottom-left;
-	-moz-border-radius-topleft: @top-left;
-	-moz-border-radius-topright: @top-right;
-	-moz-border-radius-bottomright: @bottom-right;
-	-moz-border-radius-bottomleft: @bottom-left;
-	border-top-left-radius: @top-left;
-	border-top-right-radius: @top-right;
-	border-bottom-right-radius: @bottom-right;
-	border-bottom-left-radius: @bottom-left;
-	behavior: url(../misc/border-radius.htc);
-}
-
 .box-shadow(@horizontal: 0px, @vertical: 0px, @blur: 8px, @color: #333) {
 	-webkit-box-shadow: @horizontal @vertical @blur @color;
 	-moz-box-shadow: @horizontal @vertical @blur @color;
@@ -48,13 +22,23 @@
 	border-bottom: 1px solid @bottom;
 }
 
-.vertical-gradient(@start: #000, @stop: #FFF) {
+.vertical-gradient(@start: #000, @stop: #fff) {
 	@mid: ( @start + @stop ) / 2;
 	background: @mid;
-	background: -webkit-gradient(linear, left top, left bottom, from(@start), to(@stop));
-	background: -webkit-linear-gradient(@start, @stop);
-	background: -moz-linear-gradient(center top, @start 0%, @stop 100%);
-	background: -moz-gradient(center top, @start 0%, @stop 100%);
+	background: @mid; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(@start, @stop); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(@start, @stop); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(@start, @stop); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(@start, @stop); /* Standard syntax */
+}
+
+.horizontal-gradient(@start: #000, @stop: #fff) {
+	@mid: ( @start + @stop ) / 2;
+	background: @mid; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left, @start , @stop); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right, @start, @stop); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, @start, @stop); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, @start , @stop); /* Standard syntax */
 }
 
 .opacity(@opacity: 100) {
@@ -114,19 +98,19 @@
 }
 
 .ir(@img) {
-    display: block;
-    border: 0;
-    text-indent: -999em;
-    overflow: hidden;
-    background-image: url("@{img}");
-    background-color: transparent;
-    background-repeat: no-repeat;
-    text-align: left;
-    direction: ltr;
-    
-    br {
-        display: none;
-    }
+	display: block;
+	border: 0;
+	text-indent: -999em;
+	overflow: hidden;
+	background-image: url("@{img}");
+	background-color: transparent;
+	background-repeat: no-repeat;
+	text-align: left;
+	direction: ltr;
+
+	br {
+		display: none;
+	}
 }
 
 /* for use on :after */
