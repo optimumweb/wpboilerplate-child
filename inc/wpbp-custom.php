@@ -1,9 +1,7 @@
 <?php
 
-// ENQUEUE
-function enqueue()
-{
-	if ( !is_admin() ) {
+function enqueue() {
+	if ( ! is_admin() ) {
 	    // libs
 	    wpbp_enqueue_lib( array( 'modernizr', 'jquery', 'wpbp' ) );
 		// scripts
